@@ -1,21 +1,27 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import React from 'react';
-import { useRouter } from 'expo-router';
+// app/index.jsx
+import React from "react";
+import { View, ImageBackground } from "react-native";
+import { useRouter } from "expo-router";
+import CustomButton from "../components/CustomButton"; // Import the CustomButton
 
-const Index = () => {
+export default function WelcomePage() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 justify-center items-center bg-white px-6">
-      <Text className="text-3xl font-bold mb-6">Welcome</Text>
-      <TouchableOpacity
-        className="bg-blue-500 px-6 py-3 rounded-lg"
-        onPress={() => router.push('/(auth)/sign-in')}
-      >
-        <Text className="text-white text-lg font-semibold">Get Started</Text>
-      </TouchableOpacity>
-    </View>
+    <ImageBackground
+      source={require("../assets/images/Index.jpg")} // Background image path
+      style={{ flex: 1 }}
+      resizeMode="cover"
+    >
+      <View className="flex-1 items-center justify-end bg-opacity-40 m-20">
+        {/* Get Started Button positioned near the bottom */}
+        <CustomButton
+          title="Get Started"
+          onPress={() => router.push("/(auth)/signup")}
+          buttonStyle="bg-orange-200 px-6 py-4 rounded-lg" // Custom button styles
+          textStyle="text-black text-lg font-regular" // Custom text styles
+        />
+      </View>
+    </ImageBackground>
   );
-};
-
-export default Index;
+}
