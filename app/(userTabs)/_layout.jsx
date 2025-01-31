@@ -24,7 +24,7 @@ const TabLayout = () => {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Hostel",
+          title: "Profile",
           headerShown: false,
           tabBarIcon: ({ color, size }) => <FontAwesome name="user" size={size} color={color} />,
         }}

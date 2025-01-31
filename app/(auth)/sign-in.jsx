@@ -1,13 +1,32 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ImageBackground, Alert } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useRouter } from "expo-router";
+import { signIn } from "../../lib/appwrite"; // Import signIn function
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+
+  const handleSignIn = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please enter email and password");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await signIn(email, password);
+      router.replace("/(userTabs)/home"); // Navigate to home after login
+    } catch (error) {
+      Alert.alert("Login Failed", error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <ImageBackground
@@ -45,10 +64,13 @@ const SignIn = () => {
 
         {/* Sign In Button */}
         <TouchableOpacity
-          onPress={() => router.replace("/(userTabs)/home")}
+          onPress={handleSignIn}
           className="w-60 p-4 bg-orange-300 rounded-lg items-center"
+          disabled={isSubmitting}
         >
-          <Text className="text-white font-semibold">Sign In</Text>
+          <Text className="text-white font-semibold">
+            {isSubmitting ? "Signing In..." : "Sign In"}
+          </Text>
         </TouchableOpacity>
 
         {/* Navigate to Sign Up */}

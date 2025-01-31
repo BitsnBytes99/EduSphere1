@@ -1,4 +1,6 @@
-{
+import 'dotenv/config'
+
+export default {
   "expo": {
     "name": "EduSphere",
     "slug": "EduSphere",
@@ -36,6 +38,14 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      endpoint: process.env.APPWRITE_ENDPOINT,
+      platform: process.env.APPWRITE_PLATFORM,
+      projectId: process.env.APPWRITE_PROJECT_ID,
+      databaseId: process.env.APPWRITE_DATABASE_ID,
+      userCollectionId: process.env.APPWRITE_USER_COLLECTION_ID,
+      bucketId:  process.env.PUBLIC_APPWRITE_BUCKET_ID
+    },
   }
 }

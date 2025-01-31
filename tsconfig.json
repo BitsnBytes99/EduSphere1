@@ -14,5 +14,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
-  ]
+, "app/index.jsx", "app/(adminTabs)/_layout.jsx", "app/(adminTabs)/adminHome.jsx", "app/(AIBot)/_layout.jsx", "app/(AIBot)/chatbot.jsx", "app/(auth)/_layout.jsx", "app/(auth)/sign-in.jsx", "app/(auth)/signup.jsx", "app/(CreateTeam)/_layout.jsx", "app/(userTabs)/_layout.jsx", "app/(userTabs)/home.jsx", "app/(userTabs)/hostel.jsx", "app/(userTabs)/profile.jsx", "app/_layout.jsx"  ]
 }

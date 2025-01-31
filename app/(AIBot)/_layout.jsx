@@ -19,7 +19,7 @@ const ChatbotScreen = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const imageUrl = require('../../assets/images/pet.jpg'); // Replace with appropriate image for your app
+  const imageUrl = require('../../assets/images/react.png'); // Replace with appropriate image for your app
 
   const BASE_URL = "https://api.aimlapi.com/v1";
   const API_KEY = "c47018ee2ec7435ba96388073ed4c791";
